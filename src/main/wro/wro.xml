@@ -1,0 +1,13 @@
+<groups xmlns="http://www.isdc.ro/wro">
+    <group name="third-party">
+
+        <!-- css -->
+        <css>webjar:bootstrap/3.3.7-1/css/bootstrap.min.css</css>
+
+        <!-- js -->
+        <js>webjar:angularjs/1.5.8/angular.min.js</js>
+        <js>webjar:angularjs/1.5.8/angular-sanitize.min.js</js>
+        <js>webjar:angularjs/1.5.8/angular-aria.min.js</js>
+        <js>webjar:angular-ui-router/1.0.0-beta.3/angular-ui-router.min.js</js>
+    </group>
+</groups>

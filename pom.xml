@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.syjer</groupId>
+	<artifactId>spring-ng-webjar</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>spring-ng-webjar Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+
+
+	<dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-ui-router</artifactId>
+            <version>1.0.0-beta.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angularjs</artifactId>
+            <version>1.5.8</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+	<build>
+		<finalName>spring-ng-webjar</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${org.eclipse.jetty.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>ro.isdc.wro4j</groupId>
+                <artifactId>wro4j-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
+                    <cssDestinationFolder>${project.build.directory}/classes/static/css</cssDestinationFolder>
+                    <jsDestinationFolder>${project.build.directory}/classes/static/js</jsDestinationFolder>
+                    <wroFile>${basedir}/src/main/wro/wro.xml</wroFile>
+                    <extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
+                    <contextFolder>${basedir}/src/main/wro</contextFolder>
+                </configuration>
+                <!-- third party dependencies are concatenated at build time -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.webjars</groupId>
+                        <artifactId>angularjs</artifactId>
+                        <version>1.5.8</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.webjars</groupId>
+                        <artifactId>angular-ui-router</artifactId>
+                        <version>1.0.0-beta.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.webjars</groupId>
+                        <artifactId>bootstrap</artifactId>
+                        <version>3.3.7-1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <additionalContexts>
+                        <context>
+                            <contextRoot>/lib</contextRoot>
+                            <directory>${project.build.directory}/classes/static/js</directory>
+                        </context>
+                    </additionalContexts>
+                    <preloadSources>
+                        <source>/webjars/angularjs/1.5.8/angular.js</source>
+                        <source>/webjars/angularjs/1.5.8/angular-sanitize.js</source>
+                        <source>/webjars/angularjs/1.5.8/angular-aria.js</source>
+                        <source>/webjars/angularjs/1.5.8/angular-mocks.js</source>
+                        <source>/webjars/angular-ui-router/1.0.0-beta.3/angular-ui-router.js</source>
+                    </preloadSources>
+                    <jsSrcDir>${project.basedir}/src/main/webapp/app</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/test/webapp/app</jsTestSrcDir>
+                    <phantomjs><version>2.1.1</version></phantomjs>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+	</build>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<org.springframework.version>4.3.4.RELEASE</org.springframework.version>
+		<org.eclipse.jetty.version>9.2.19.v20160908</org.eclipse.jetty.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+</project>
