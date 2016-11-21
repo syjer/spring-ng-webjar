@@ -32,3 +32,4 @@ mvn jasmine:bdd
 - https://github.com/akquinet/angularjs-blog
 - https://github.com/spring-guides/tut-spring-security-and-angular-js
 - https://puigcerber.com/2016/02/07/how-to-test-angular-1-5-components/
+- http://wro4j.readthedocs.io/en/stable/ConfigureWro4jViaSpring/

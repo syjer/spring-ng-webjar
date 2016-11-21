@@ -8,8 +8,6 @@
 	<name>spring-ng-webjar Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-
-
 	<dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -22,6 +20,13 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>ro.isdc.wro4j</groupId>
+            <artifactId>wro4j-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
+        <!-- jasmine test dependencies, must be copied from the wro4j-maven-plugin plugin -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>angular-ui-router</artifactId>
@@ -107,6 +112,10 @@
                         <context>
                             <contextRoot>/lib</contextRoot>
                             <directory>${project.build.directory}/classes/static/js</directory>
+                        </context>
+                        <context>
+                            <contextRoot>/app</contextRoot>
+                            <directory>${project.basedir}/src/main/webapp/app</directory>
                         </context>
                     </additionalContexts>
                     <preloadSources>
