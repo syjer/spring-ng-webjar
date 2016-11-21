@@ -31,6 +31,7 @@
             <groupId>org.webjars</groupId>
             <artifactId>angular-ui-router</artifactId>
             <version>1.0.0-beta.3</version>
+	    <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
