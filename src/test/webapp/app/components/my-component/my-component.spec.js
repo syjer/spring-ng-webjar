@@ -11,6 +11,7 @@ describe('myComponent test suite', function() {
     }));
 
     it('should expose value', function() {
+    	controller.$onInit();
         expect(controller.value).toBeDefined();
         expect(controller.value).toBe('1.5');
     });
