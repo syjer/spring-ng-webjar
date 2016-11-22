@@ -35,3 +35,5 @@ mvn jasmine:bdd
 - http://wro4j.readthedocs.io/en/stable/ConfigureWro4jViaSpring/
 - http://www.pseudobry.com/jasmine-maven-requirejs-coverage/
 - https://searls.github.io/jasmine-maven-plugin/code-coverage.html
+- https://github.com/NitorCreations/willow/blob/master/willow-servers/pom.xml
+- https://github.com/timurstrekalov/saga/issues/35
