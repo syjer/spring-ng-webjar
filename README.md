@@ -7,6 +7,9 @@ This is a simple template/example for a spring web app which:
  - use wro4j for handling the concatenation of the application resources at runtime for enabling a simpler dev cycle
  - use jasmine for bdd tests
 
+## Open issue:
+
+The saga-maven-plugin does not generate the correct coverage for the angular app.
 
 
 ## Third party dependencies

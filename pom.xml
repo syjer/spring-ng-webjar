@@ -25,6 +25,14 @@
 			<artifactId>wro4j-core</artifactId>
 			<version>1.8.0</version>
 		</dependency>
+		
+		<!-- for proxying calls: ignore please :D -->
+		<dependency>
+		    <groupId>org.mitre.dsmiley.httpproxy</groupId>
+    		<artifactId>smiley-http-proxy-servlet</artifactId>
+    		<version>1.7</version>
+		</dependency>
+		<!--  -->
 
 		<!-- jasmine test dependencies, must be copied from the wro4j-maven-plugin 
 			plugin -->
