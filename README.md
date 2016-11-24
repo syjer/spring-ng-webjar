@@ -40,3 +40,4 @@ mvn jasmine:bdd
 - https://searls.github.io/jasmine-maven-plugin/code-coverage.html
 - https://github.com/NitorCreations/willow/blob/master/willow-servers/pom.xml
 - https://github.com/timurstrekalov/saga/issues/35
+- http://ahexamples.blogspot.ch/2014/03/example-of-jasmine-saga-sonar-maven.html
