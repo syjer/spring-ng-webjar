@@ -144,6 +144,30 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>ch.digitalfondue.jscover</groupId>
+				<artifactId>jscoverproxy-maven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>coverage</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<baseUrl>http://localhost:${jasmine.serverPort}</baseUrl>
+					<outputDir>${project.build.directory}/report/</outputDir>
+					<noInstruments>
+						<noInstrument>webjars/</noInstrument>
+						<noInstrument>classpath/</noInstrument>
+						<noInstrument>spec/</noInstrument>
+					</noInstruments>
+					<jsSrcDir>src/main/webapp/app</jsSrcDir>
+					<generateXMLSUMMARY>true</generateXMLSUMMARY>
+					<generateLCOV>true</generateLCOV>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>com.github.timurstrekalov</groupId>
 				<artifactId>saga-maven-plugin</artifactId>
 				<version>1.5.5</version>
@@ -168,27 +192,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.19.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<id>fix-test-reports</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<copy
-									file="${project.build.directory}/jasmine/total-coverage.dat"
-									tofile="${project.build.directory}/jasmine/jsTestDriver.conf-coverage.dat" />
-							</target>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
